@@ -1,0 +1,10 @@
+@font-face {
+  font-family: mainFont;
+  src: url(./assets/font/Rubik-Regular.ttf);
+}
+
+
+.App {
+  text-align: center;
+  font-family: mainFont;
+}
