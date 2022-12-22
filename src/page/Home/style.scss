@@ -30,6 +30,9 @@
           color: white;
           font-size: 40px;
         }
+        @media(max-width: 640px) {
+          column-gap: 20px;
+        }
       }
     }
     .banner-content {
@@ -44,10 +47,9 @@
         font-size: 70px;
         font-weight: 600;
         line-height: 82.95px;
-        
-      @media(max-width: 1342px) {
-        font-size: 60px;
-      }
+        @media(max-width: 1342px) {
+          font-size: 60px;
+        }
       }
       .content-container {
         display: flex;
@@ -97,6 +99,12 @@
           width: 100%;
         }
       }
+      @media(max-width: 1172px) {
+        width: 70%;
+      }
+      @media(max-width: 1024px) {
+        width: 100%;
+      }
     }
     @media(max-width: 1375px) {
       padding-left: 20px;
@@ -106,6 +114,7 @@
 }
 .content {
   position: relative;
+  overflow: hidden;
   .content-video-box {
     position: absolute;
     height: 300vh;
@@ -116,6 +125,12 @@
     .content-back-video {
       width: 150%;
       overflow-x: hidden;
+      @media(max-width: 884px) {
+        width: auto;
+      }
+    }
+    @media(max-width: 1196px) {
+      height: auto;
     }
   }
   .content-container {
@@ -169,6 +184,17 @@
             }
           }
         }
+        @media(max-width: 640px) {
+          justify-content: center;
+        }
+      }
+      @media(max-width: 1375px) {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+      @media(max-width: 640px) {
+        height: 100%;
+        padding-top: 20px;
       }
     }
     .cases {
@@ -197,6 +223,14 @@
           background-color: rgba(158, 82, 254, 1);
           border-radius: 50%;
           z-index: -1;
+          @media(max-width: 1240px) {
+            width: 120px;
+            height: 120px;
+          }
+          @media(max-width: 640px) {
+            width: 90px;
+            height: 90px;
+          }
         }
         .nftCircle {
           position: absolute;
@@ -207,6 +241,14 @@
           z-index: -1;
           background-color: rgba(53, 102, 225, 1);
           border-radius: 50%;
+          @media(max-width: 1240px) {
+            width: 70px;
+            height: 70px;
+          }
+          @media(max-width: 640px) {
+            width: 50px;
+            height: 50px;
+          }
         }
         .selectCircle {
           position: absolute;
@@ -217,6 +259,14 @@
           height: 379.5px;
           background-color: rgba(53, 102, 225, 1);
           border-radius: 50%;
+          @media(max-width: 1240px) {
+            width: 250px;
+            height: 250px;
+          }
+          @media(max-width: 714px) {
+            width: 180px;
+            height: 180px;
+          }
         }
       }
       @media(max-width: 1375px) {
@@ -243,9 +293,22 @@
             font-size: 60px;
             font-weight: 600;
             line-height: 40px;
+            @media(max-width: 1024px) {
+              font-size: 50px;
+              font-weight: 600;
+            }
+            @media(max-width: 794px) {
+              font-size: 40px;
+              font-weight: 400;
+            }
           }
           .subtitle-img {
-
+            @media(max-width: 1024px) {
+              width: 60px;
+            }
+          }
+          @media(max-width: 1024px) {
+            gap: 20px;
           }
         }
       }
@@ -269,6 +332,8 @@
           }
           .more {
             width: inherit;
+            color: white;
+            text-align: left;
             span {
               padding-bottom: 3px;
               border-bottom: 1px solid white;
@@ -510,26 +575,31 @@
               line-height: 26.07px;
             }
           }
-          .more {
-            color: white;
-            text-align: left;
-          }
           @media(max-width: 1375px) {
             row-gap: 50px;
           }
+          @media(max-width: 766px) {
+            row-gap: 30px;
+            height: fit-content;
+            justify-content: center;
+          }
+        }
+        @media(max-width: 766px) {
+          justify-content: center;
         }
       }
       @media(max-width: 1375px) {
         padding-left: 20px;
         padding-right: 20px;
       }
-    }
-    @media(max-width: 1375px) {
-      padding-left: 20px;
-      padding-right: 20px;
+      @media(max-width: 1196px) {
+        height: 100%;
+      }
+      @media(max-width: 1196px) {
+        padding-bottom: 20px;
+      }
     }
   }
-  
 }
 .footer {
   padding: 20px 0px 20px 0px;
@@ -548,5 +618,9 @@
         font-size: 25px;
       }
     }
+  }
+  @media(max-width: 1375px) {
+    padding-left: 20px;
+    padding-right: 20px;
   }
 }

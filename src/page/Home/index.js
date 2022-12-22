@@ -190,7 +190,7 @@ const Home = () =>  {
 
         setFillWhiteScale(1 + Math.abs(poweredRect.top)*1.2 / poweredHeight)
         setFillWhiteTranslateX((-Math.abs(poweredRect.top) / poweredHeight) * 120)
-        setFillWhiteTranslateY((Math.abs(poweredRect.top) / poweredHeight) * 200)
+        setFillWhiteTranslateY((Math.abs(poweredRect.top) / poweredHeight) * 50)
 
         setFillBlueScale(1 + Math.abs(poweredRect.top)*1.2 / poweredHeight)
         setFillBlueTranslateX((Math.abs(poweredRect.top) / poweredHeight) * 80)
@@ -420,6 +420,7 @@ const Home = () =>  {
                   <div className='powered-individual-icon'>
                     <div className='green-circle' 
                     style={{
+                      opacity: chainCircleOpacity, 
                       transform: `translate(${greenCircleTranslateX}px, ${greenCircleTranslateY}px) scale(${greenCircleScale}) rotate(${greenCircleRotate}deg)`
                     }}>
                       <div className='circle-one' />
@@ -428,14 +429,17 @@ const Home = () =>  {
                       <div className='circle-four' />
                       <div className='fill-white-sm' 
                       style={{
+                        opacity: chainCircleOpacity, 
                         transform: `translate(${fillWhiteSmTranslateX}px, ${fillWhiteSmTranslateY}px) scale(${fillWhiteSmScale})`
                       }}/>
                       <div className='fill-white' 
                       style={{
+                        opacity: chainCircleOpacity, 
                         transform: `translate(${fillWhiteTranslateX}px, ${fillWhiteTranslateY}px) scale(${fillWhiteScale})`
                       }}/>
                       <div className='fill-blue' 
                       style={{
+                        opacity: chainCircleOpacity, 
                         transform: `translate(${fillBlueTranslateX}px, ${fillBlueTranslateY}px) scale(${fillBlueScale})`
                       }}/>
                       <div className='fill-pink' />
