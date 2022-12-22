@@ -18,28 +18,77 @@ import { Fade, Zoom } from 'react-awesome-reveal';
 const Home = () =>  {
   const bannerRef = useRef(null);
   const platformRef = useRef(null);
+  const casesRef = useRef(null);
   const [scrollPosition, setScrollPosition] = useState(0);
 
   const [bannerOpacity, setBannerOpacity] = useState(1);
   const [bannerTranslateY, setBannerTranslateY] = useState(0);
 
   const [platformOpacity, setPlatformOpacity] = useState(1);
-  const [platformTranslateY, setPlatformTranslateY] = useState(0)
+  const [platformTranslateY, setPlatformTranslateY] = useState(0);
+
+  const [tokenCircleOpacity, setTokenCircleOpacity] = useState(1);
+  const [tokenCircleScale, setTokenCircleScale] = useState(0);
+  const [tokenTranslateX, setTokenTranslateX] = useState(0);
+  const [tokenTranslateY, setTokenTranslateY] = useState(0);
+
+  const [nftCircleOpacity, setNftCircleOpacity] = useState(1);
+  const [nftCircleScale, setNftCircleScale] = useState(0);
+  const [nftCircleTranslateX, setNftCircleTranslateX] = useState(0);
+  const [nftCircleTranslateY, setNftCircleTranslateY] = useState(0);
+
+  const [selectCircleOpacity, setSelectCircleOpacity] = useState(1);
+  const [selectCircleScale, setSelectCircleScale] = useState(0);
+  const [selectCircleTranslateX, setSelectCircleTranslateX] = useState(0);
+  const [selectCircleTranslateY, setSelectCircleTranslateY] = useState(0);
 
   useEffect(() => {
     let bannerHeight = bannerRef.current.clientHeight;
     let platformHeight = platformRef.current.clientHeight;
+    let casesHeight = casesRef.current.clientHeight;
     const handleScroll = () => {
       const bannerRect = document.getElementsByClassName('banner-content')[0].getBoundingClientRect();
       const platformRect = document.getElementsByClassName('platform')[0].getBoundingClientRect();
+      const casesRect = document.getElementsByClassName('cases')[0].getBoundingClientRect();
       
       if (bannerRect.top < 0) {
         setBannerOpacity(1 - Math.abs(bannerRect.top) / bannerHeight)
         setBannerTranslateY((bannerRect.top / bannerHeight) * 120)
       }
-      if(platformRect.top < 0) {
+      if (platformRect.top < 0) {
         setPlatformOpacity(1 - Math.abs(platformRect.top) / platformHeight)
         setPlatformTranslateY((platformRect.top / platformHeight) * 120)
+      }
+      if (casesRect.top > 0) {
+        setTokenCircleOpacity(1 - Math.abs(casesRect.top) / casesHeight)
+        setTokenCircleScale(1 + Math.abs(casesRect.top) / casesHeight)
+        setTokenTranslateX(-(Math.abs(casesRect.top) / casesHeight) * 110)
+        setTokenTranslateY(-(Math.abs(casesRect.top) / casesHeight) * 300)
+
+        setNftCircleOpacity(1 - Math.abs(casesRect.top) / casesHeight);
+        setNftCircleScale(1 + Math.abs(casesRect.top) * 2 / casesHeight)
+        setNftCircleTranslateX(-(Math.abs(casesRect.top) / casesHeight) * 200)
+        setNftCircleTranslateY(-(Math.abs(casesRect.top) / casesHeight) * 100)
+
+        setSelectCircleOpacity(1 - Math.abs(casesRect.top) / casesHeight)
+        setSelectCircleScale(1 + Math.abs(casesRect.top) / casesHeight)
+        setSelectCircleTranslateX(-(Math.abs(casesRect.top) / casesHeight) * 200)
+        setSelectCircleTranslateY(-(Math.abs(casesRect.top) / casesHeight) * 200)
+      } else {
+        setTokenCircleOpacity(1 - Math.abs(casesRect.top) * 2 / casesHeight)
+        setTokenCircleScale(1 - casesRect.top / casesHeight)
+        setTokenTranslateX(-(Math.abs(casesRect.top) / casesHeight) * 110)
+        setTokenTranslateY((Math.abs(casesRect.top) / casesHeight) * 300)
+
+        setNftCircleOpacity(1 - Math.abs(casesRect.top) / casesHeight)
+        setNftCircleScale(1 - casesRect.top * 2 / casesHeight)
+        setNftCircleTranslateX(-(Math.abs(casesRect.top) / casesHeight) * 150)
+        setNftCircleTranslateY((Math.abs(casesRect.top) / casesHeight) * 150)
+
+        setSelectCircleOpacity(1 - Math.abs(casesRect.top) * 1.5 / casesHeight)
+        setSelectCircleScale(1 - casesRect.top / casesHeight)
+        setSelectCircleTranslateX(-(Math.abs(casesRect.top) / casesHeight) * 150)
+        setSelectCircleTranslateY((Math.abs(casesRect.top) / casesHeight) * 150)
       }
     };
 
@@ -138,13 +187,25 @@ const Home = () =>  {
             </div>
           </div>
 
-          <div className='cases '>
+          <div className='cases' ref={casesRef}>
             <div className='cases-title'>Use Cases</div>
             <div className='img-box'>
               <img className='img-chat' src={Cases} alt='Case' />
-              <div className='tokenCircle animate-on-scroll'></div>
-              <div className='nftCircle animate-on-scroll-nft'></div>
-              <div className='selectCircle animate-on-scroll-select'></div>
+              <div className='tokenCircle'
+              style={{
+                opacity: tokenCircleOpacity,
+                transform: `translate(${tokenTranslateX}px, ${tokenTranslateY}px) scale(${tokenCircleScale})`
+              }} />
+              <div className='nftCircle' 
+              style={{
+                opacity: nftCircleOpacity,
+                transform: `translate(${nftCircleTranslateX}px, ${nftCircleTranslateY}px) scale(${nftCircleScale})`
+              }}/>
+              <div className='selectCircle'
+              style={{
+                opacity: selectCircleOpacity,
+                transform: `translate(${selectCircleTranslateX}px, ${selectCircleTranslateY}px) scale(${selectCircleScale})`
+              }} />
             </div>
           </div>
 
